@@ -81,7 +81,7 @@ if __name__=="__main__":
     with right:
         btn = st.button(":orange[🔃]", type="tertiary", use_container_width=True)
 
-    os_path = os.path.join(os.getcwd(), 'country_data.csv')
+    os_path = os.path.join(os.getcwd(), '/data/country_data.csv')
     json_parser= JsonOutputParser()
     if btn or not (os.path.exists(os_path)):
         loader = WebBaseLoader("https://en.wikipedia.org/wiki/List_of_national_capitals")
@@ -96,7 +96,7 @@ if __name__=="__main__":
         country_res= chain_llm.invoke(input= {'page_data': page_data} )#
         #country_res= chain_llm(input= {'Country': 'India'} )
         #Print the JSON file
-        print(json_parser.parse(country_res.content))
+        #print(json_parser.parse(country_res.content))
         df = pd.DataFrame(json_parser.parse(country_res.content))
         save_path = os.path.join('./country_data.csv')
         df.to_csv(save_path, index=False)

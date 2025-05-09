@@ -2,21 +2,23 @@
 
 This project provides tools for scraping, analyzing, and visualizing country-related data. It includes the following components:
 
-## Files
+## Features
 
-### `country_data.py`
-This script contains functions and classes for processing and analyzing country data. It serves as the core module for handling data operations.
+- **Data Processing**: Core functions and classes for handling country data.
+- **Web Scraping**: Tools for fetching and parsing data from various sources.
+- **Containerization**: Docker support for consistent deployment environments, including Docker Compose.
+- **Streamlit Integration**: Option to run a Streamlit app for interactive data visualization.
 
-### `webscrapper.py`
-This script is responsible for scraping country-related data from various web sources. It includes methods for fetching, parsing, and storing the data.
+## Files Overview
 
-### `Dockerfile`
-This file is used to containerize the project, enabling easy deployment and consistent runtime environments. It defines the necessary steps to build a Docker image for the project.
+- **`country_data.py`**: Core module for data operations.
+- **`webscrapper.py`**: Script for scraping country-related data.
+- **`Dockerfile`**: Defines steps to build a Docker image for the project.
+- **`docker-compose.yml`**: Configuration file for Docker Compose.
+- **`pyproject.toml`**: Manages the build system and dependencies.
 
-### `pyproject.toml`
-This file is used to configure and manage the project’s build system and dependencies. It provides metadata about the project and specifies the tools required for building and packaging.
+## Setup Instructions
 
-## Setup
 1. Clone the repository:
     ```bash
     git clone https://github.com/yourusername/country_data.git
@@ -26,27 +28,50 @@ This file is used to configure and manage the project’s build system and depen
     ```bash
     GROQ_API_KEY=your_api_key_here
     ```
-3. Optionally, build and run the Docker container:
+3. Build and run the Docker container (optional):
     ```bash
     docker build -t sudipto19/country_data .
     docker run -it --env-file=/home/<path_to_project>/country_data/.env sudipto19/country_data
     ```
-   Alternatively, run the container in detached mode:
+   Or run in detached mode:
     ```bash
     docker run -d --env-file=/home/<path_to_project>/country_data/.env sudipto19/country_data
     ```
-4. Optionally you can run the Streamlit app directly from host:
+
+4. Use Docker Compose for easier container management (optional):
+    - Build and start the services:
+        ```bash
+        docker compose up --build
+        ```
+    - if imahge is available
+        docker compose pull
+        docker compose up -no-build
+        ```
+    - Start the services without rebuilding:
+        ```bash
+        docker compose up
+        ```
+    - Stop and remove the services:
+        ```bash
+        docker compose down
+        ```
+
+5. Run the Streamlit app directly (optional):
     ```bash
     uv run streamlit run main.py
     ```
 
 ## Requirements
-- Python 3.x
-- Docker (optional, for containerization)
-- Required libraries (listed in `pyproject.toml`)
 
-## End Result
-![alt text](image-1.png)
+- Python 3.x
+- Docker (optional)
+- Docker Compose (optional)
+- Dependencies listed in `pyproject.toml`
+
+## Output Example
+
+![Country Data Visualization](image-1.png)
 
 ## License
-This project is licensed under the MIT License. See the `LICENSE` file for details.
+
+This project is licensed under the MIT License. See the[LICENSE](./LICENSE) file for more details.

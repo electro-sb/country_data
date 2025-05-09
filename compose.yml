@@ -1,0 +1,30 @@
+version: "3.8"
+services:
+  country_data:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - target: 8501
+        published: 8501
+        protocol: tcp
+        mode: host
+
+    networks:
+      - country_data_network
+
+    volumes:
+      - type: volume
+        source: country_data_volume
+        target: /data
+
+    env_file:
+      - .env
+
+networks:
+  country_data_network:
+    driver: bridge
+
+volumes:
+  country_data_volume:
+    driver: local
