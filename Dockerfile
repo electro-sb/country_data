@@ -1,5 +1,6 @@
 # Pull image with python uv
 FROM ghcr.io/astral-sh/uv:python3.12-bookworm-slim
+COPY --from=ghcr.io/astral-sh/uv:latest /uv /uvx /bin/
 # maintainer:
 LABEL maintainer="electronic.sapience@gmail.com"
 # Copy application files
