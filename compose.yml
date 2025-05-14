@@ -1,9 +1,13 @@
 version: "3.8"
 services:
   country_data:
-    build:
-      context: .
-      dockerfile: Dockerfile
+    # build:
+    #   context: .
+    #   dockerfile: Dockerfile
+    image: sudipto19/country_data:latest
+    container_name: country_data_container
+    restart: always
+
     ports:
       - target: 8501
         published: 8501
