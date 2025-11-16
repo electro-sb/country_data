@@ -97,4 +97,4 @@ This project provides tools for scraping, analyzing, and visualizing country-rel
 
 ## License
 
-This project is licensed under the MIT License. See the[LICENSE](./LICENSE) file for more details.
+This project is licensed under the MIT License. See the[LICENSE](./LICENSE.md) file for more details.
